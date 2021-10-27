@@ -14,9 +14,16 @@ function enqueue_admin_scripts(){
     wp_enqueue_style( 'admin-css', get_stylesheet_directory_uri() . '/css/admin.css');
 }
 
+
 function dumpData($data, $die = false){
     echo "<pre>";
     var_dump($data);
     echo "</pre>";
     if($die) die("Output Stopped");
+}
+
+add_action( 'wp_loaded','hide_admin_bar_elem_user' );
+function hide_admin_bar_elem_user(){
+    $currentUser = get_current_user_id();
+    if($currentUser == 2) add_filter('show_admin_bar', '__return_false');
 }
