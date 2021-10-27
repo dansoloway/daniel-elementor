@@ -28,6 +28,32 @@ function dumpData($data, $die = false){
     if($die) die("Output Stopped");
 }
 
+function change_address_bar_mobile() {
+    if(wp_is_mobile()){
+        ?>
+        <meta name="theme-color" content="#7F4797">
+    <?php }
+}
+add_action('wp_head', 'change_address_bar_mobile');
+
+// add a GET value like soldout=1  and the Product Box Shortcode will be grey
+
+function make_product_out($output, $tag, $attr){
+    if($tag == 'product_box' && isset($_GET['soldout']) && $_GET['soldout'] != '' ){
+        $customStyles =
+            '<style>
+            .shortcode-box{
+                background-color:grey !important;
+            }
+        </style>';
+        return  $customStyles . $output;
+    }
+    else return $output;
+}
+add_filter( 'do_shortcode_tag','make_product_out',10,3);
+
+
+
 require_once(get_stylesheet_directory() . "/functions/types.php");  // register custom post type and taxonomy
 require_once(get_stylesheet_directory() . "/functions/gallery_meta.php");   // photo gallery Meta Box
 require_once(get_stylesheet_directory() . "/functions/info_meta.php");   // Product Info Meta Box
