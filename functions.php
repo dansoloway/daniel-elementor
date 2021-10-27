@@ -14,6 +14,12 @@ function enqueue_admin_scripts(){
     wp_enqueue_style( 'admin-css', get_stylesheet_directory_uri() . '/css/admin.css');
 }
 
+add_action( 'wp_loaded','hide_admin_bar_elem_user' );
+function hide_admin_bar_elem_user(){
+    $currentUser = get_current_user_id();
+    if($currentUser == 2) add_filter('show_admin_bar', '__return_false');
+}
+
 
 function dumpData($data, $die = false){
     echo "<pre>";
@@ -22,8 +28,8 @@ function dumpData($data, $die = false){
     if($die) die("Output Stopped");
 }
 
-add_action( 'wp_loaded','hide_admin_bar_elem_user' );
-function hide_admin_bar_elem_user(){
-    $currentUser = get_current_user_id();
-    if($currentUser == 2) add_filter('show_admin_bar', '__return_false');
-}
+
+require_once(get_stylesheet_directory() . "/functions/types.php");  // register custom post type and taxonomy
+require_once(get_stylesheet_directory() . "/functions/gallery_meta.php");   // photo gallery Meta Box
+require_once(get_stylesheet_directory() . "/functions/info_meta.php");   // Product Info Meta Box
+require_once(get_stylesheet_directory() . "/functions/display_product.php");   // Display product to user

@@ -3,3 +3,90 @@
  Author:       Daniel Soloway
  Template:     twentytwenty
 */
+.adminImagePreview{
+    width:300px;
+}
+.adminImagePreview img{
+    max-width:100%;
+}
+
+/*
+Single Product Page
+ */
+
+.single-meta-title{
+    font-weight:bold;
+}
+.on-sale{
+    text-decoration: line-through;
+}
+.product-image-gallery{
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+}
+
+/* Archive Page */
+.page-header{
+    text-align: center;
+}
+.product-container{
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+}
+.one-product{
+    position: relative;
+}
+.one-product h2 {
+    margin:2rem auto 4rem;
+    text-align:center;
+}
+.one-product img {
+    max-width: 100%;
+}
+.one-product a, .one-product a:visited, .one-product a:active{
+    color: black;
+    text-decoration: none;
+}
+
+.one-product a:hover{
+    text-decoration: underline;
+}
+
+
+.sale-badge{
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 25%;
+    background-color: white;
+    padding: 5px 20px;
+}
+.user-actions li{
+    text-align: left;
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1224px) {
+    .product-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 1224px) {
+    .product-image-gallery{
+        grid-template-columns: 1fr 1fr;
+    }
+    .product-container{
+        max-width: 1024px;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
