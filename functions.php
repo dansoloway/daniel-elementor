@@ -28,8 +28,8 @@ function dumpData($data, $die = false){
     if($die) die("Output Stopped");
 }
 
-
 require_once(get_stylesheet_directory() . "/functions/types.php");  // register custom post type and taxonomy
 require_once(get_stylesheet_directory() . "/functions/gallery_meta.php");   // photo gallery Meta Box
 require_once(get_stylesheet_directory() . "/functions/info_meta.php");   // Product Info Meta Box
 require_once(get_stylesheet_directory() . "/functions/display_product.php");   // Display product to user
+require_once(get_stylesheet_directory() . "/functions/shortcode.php");   //
