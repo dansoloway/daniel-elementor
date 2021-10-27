@@ -59,3 +59,4 @@ require_once(get_stylesheet_directory() . "/functions/gallery_meta.php");   // p
 require_once(get_stylesheet_directory() . "/functions/info_meta.php");   // Product Info Meta Box
 require_once(get_stylesheet_directory() . "/functions/display_product.php");   // Display product to user
 require_once(get_stylesheet_directory() . "/functions/shortcode.php");   //
+require_once(get_stylesheet_directory() . "/functions/rest_api.php");   //
